@@ -1,3 +1,11 @@
+# Audio binaries / jsons from generator
+*.mp3
+*.json
+
+# VOSK models
+model/
+model.large/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
