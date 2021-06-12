@@ -88,6 +88,6 @@ for i in range(len(chapters)):
     else:
         end_time = markup[chapters[i+1][0]-1]["start"]+1
     #print("Start time:", start_time, " end time:", end_time)
-    if(end_time): proc = subprocess.Popen(['ffmpeg', '-loglevel', 'quiet', '-i', args.input_audio, '-c:a', 'copy', '-ss', str(start_time), '-t', str(end_time), 'output/chapter_'+str(start_num_from+i)+'.mp3'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if(end_time): proc = subprocess.Popen(['ffmpeg', '-loglevel', 'quiet', '-i', args.input_audio, '-c:a', 'copy', '-ss', str(start_time), '-t', str(end_time-start_time), 'output/chapter_'+str(start_num_from+i)+'.mp3'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     else: proc = subprocess.Popen(['ffmpeg', '-loglevel', 'quiet', '-i', args.input_audio, '-c:a', 'copy', '-ss', str(start_time), 'output/chapter_'+str(start_num_from+i)+'.mp3'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     proc.wait()
